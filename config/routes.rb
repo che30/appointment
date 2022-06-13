@@ -3,8 +3,11 @@ require 'api_constraints'
 Rails.application.routes.draw do
 namespace :api do
   scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
-    resources :users, only: [:create, :show]
+    resources :users, only: [:create, :show] do
+      resources :appointments
+    end
   end
+  resources :doctors
 end 
   post 'signup', to: 'users#create'
   post 'auth/login', to: 'authentication#authenticate'
