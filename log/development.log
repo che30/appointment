@@ -2307,3 +2307,119 @@ FOREIGN KEY ("user_id")
   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
   [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "7bc94900d350afa9cc9196f0f831ba4a196dd375"], ["created_at", "2022-06-14 19:56:24.960047"], ["updated_at", "2022-06-14 19:56:24.960047"]]
   [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/signup" for ::1 at 2022-06-14 21:37:36 +0100
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"chee.blancoo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :password. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f09f11c14a0>, params: {"user"=>{"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"chee.blancoo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "controller"=>"users", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (76.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chee.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 731ms (Views: 10.1ms | ActiveRecord: 109.9ms | Allocations: 8301)
+
+
+Started POST "/signup" for ::1 at 2022-06-14 21:39:34 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"chee.blancoo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :password. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f2d59316590>, params: {"user"=>{"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"chee.blancoo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "controller"=>"users", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chee.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 181ms (Views: 0.4ms | ActiveRecord: 132.4ms | Allocations: 25136)
+
+
+Started POST "/signup" for ::1 at 2022-06-14 21:39:59 +0100
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"chee.blancoo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chee.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (42.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "chensoh"], ["last_name", "Blanko"], ["email", "chee.blancoo@gmail.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-06-14 20:39:59.716066"], ["updated_at", "2022-06-14 20:39:59.716066"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (21.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "chee.blancoo@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Update (29.2ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-06-14 20:39:59.792815"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (14.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chee.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chee.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 201 Created in 1186ms (Views: 0.3ms | ActiveRecord: 115.2ms | Allocations: 8924)
+
+
+Started POST "/signup" for ::1 at 2022-06-14 22:11:49 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"cheie.blancoo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fde54575758>, params: {"user"=>{"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"cheie.blancoo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "controller"=>"users", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 68ms (Views: 0.3ms | ActiveRecord: 9.6ms | Allocations: 26462)
+
+
+Started POST "/signup" for ::1 at 2022-06-14 22:14:23 +0100
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"cheie.blancoo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"cheie.blancoo@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fde60ab3628>, params: {"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"cheie.blancoo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"cheie.blancoo@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cheie.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "chensoh"], ["last_name", "Blanko"], ["email", "cheie.blancoo@gmail.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-06-14 21:14:23.925339"], ["updated_at", "2022-06-14 21:14:23.925339"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (13.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "cheie.blancoo@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-06-14 21:14:23.948523"], ["id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (12.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cheie.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cheie.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 201 Created in 1048ms (Views: 0.5ms | ActiveRecord: 31.1ms | Allocations: 7853)
+
+
+Started POST "/signup" for ::1 at 2022-06-14 22:23:54 +0100
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 7.6ms | Allocations: 175)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:26:in `user_params'
+app/controllers/users_controller.rb:10:in `create'
+Started POST "/signup" for ::1 at 2022-06-14 22:26:08 +0100
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{}}
+Completed 400 Bad Request in 219576ms (ActiveRecord: 6.5ms | Allocations: 54899)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:27:in `user_params'
+app/controllers/users_controller.rb:11:in `create'
