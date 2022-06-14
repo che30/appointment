@@ -39,6 +39,7 @@ class Api::V1::AppointmentsController < ApplicationController
     params.require(:appointment).permit(:message,
                                         :date_of_appointment,
                                         :time_slot,
-                                        :user_id, :doctor_id)
+                                        :user_id, 
+                                        :doctor_id)
   end
 end
