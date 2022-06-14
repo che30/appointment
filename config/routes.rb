@@ -6,8 +6,9 @@ namespace :api do
     resources :users, only: [:create, :show] do
       resources :appointments
     end
+    resources :doctors
   end
-  resources :doctors
+  
 end 
   post 'signup', to: 'users#create'
   post 'auth/login', to: 'authentication#authenticate'

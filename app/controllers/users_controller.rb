@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       json_response(response, :created)
     else
       response = @user.errors.full_messages.join(';')
-      json_response({errors: response}, :unauthorized)
+      json_response({ errors: response }, :unauthorized)
       # render json: { status: 500, errors: response}
     end
   end

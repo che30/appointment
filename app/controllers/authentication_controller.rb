@@ -1,11 +1,12 @@
 class AuthenticationController < ApplicationController
-  # skip_before_action :authorize_request, only: :authenticate
+  skip_before_action :authorize_request, only: :authenticate
   # return auth token once user is authenticated
   def authenticate
+    # byebug
     auth_token =
-      AuthenticateUser.new(auth_params[:email], auth_params[:password]).call
+      AuthenticateUser.new(params[:user][:email], params[:user][:password]).call
     user = User.find_by(email: params[:email])
-    json_response(auth_token: auth_token, email: user.email, id: user.id, username: user.username)
+    json_response({auth_token: auth_token})
   end
 
   private

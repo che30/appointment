@@ -1721,3 +1721,543 @@ Completed 201 Created in 1492ms (Views: 0.3ms | ActiveRecord: 200.6ms | Allocati
   [1m[36mDoctor Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "1@1.com"], ["LIMIT", 1]]
   [1m[36mTRANSACTION (10.8ms)[0m  [1m[31mROLLBACK[0m
   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/signup" for ::1 at 2022-06-14 19:26:06 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (56.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (15.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 868ms (Views: 0.4ms | ActiveRecord: 199.4ms | Allocations: 25011)
+
+
+Started POST "/auth/login" for ::1 at 2022-06-14 19:27:05 +0100
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007fd1c801a300>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007fd1c801a300>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007fd1c801a300>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007fd1c801a300>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 57ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 2555)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/auth/login" for ::1 at 2022-06-14 19:28:44 +0100
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 90)
+
+
+Started POST "/auth/login" for ::1 at 2022-06-14 19:29:32 +0100
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 89)
+
+
+Started POST "/auth/login" for ::1 at 2022-06-14 19:35:40 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+Completed 422 Unprocessable Entity in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 520)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (988.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "appoint_development"[0m
+  [1m[35m (412.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "appoint_test"[0m
+  [1m[35m (1682.3ms)[0m  [1m[35mCREATE DATABASE "appoint_development" ENCODING = 'unicode'[0m
+  [1m[35m (912.6ms)[0m  [1m[35mCREATE DATABASE "appoint_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (25.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "appointments" CASCADE[0m
+  [1m[35m (443.9ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "message" character varying, "date_of_appointment" character varying, "time_slot" character varying, "user_id" bigint NOT NULL, "doctor_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (74.8ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_doctor_id" ON "appointments" ("doctor_id")[0m
+  [1m[35m (42.3ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_user_id" ON "appointments" ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "doctors" CASCADE[0m
+  [1m[35m (152.1ms)[0m  [1m[35mCREATE TABLE "doctors" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "specialty" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (151.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "patient" boolean DEFAULT FALSE, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (64.0ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_8db8e1e8a5"
+FOREIGN KEY ("doctor_id")
+  REFERENCES "doctors" ("id")
+[0m
+  [1m[35m (9.1ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_9e31213785"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (196.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (14.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220611105051)[0m
+  [1m[35m (70.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220608163807),
+(20220611094534);
+
+[0m
+  [1m[35m (104.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (11.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-06-14 18:36:28.796266"], ["updated_at", "2022-06-14 18:36:28.796266"]]
+  [1m[36mTRANSACTION (19.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "7bc94900d350afa9cc9196f0f831ba4a196dd375"], ["created_at", "2022-06-14 18:36:28.845984"], ["updated_at", "2022-06-14 18:36:28.845984"]]
+  [1m[36mTRANSACTION (38.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "appointments" CASCADE[0m
+  [1m[35m (273.7ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "message" character varying, "date_of_appointment" character varying, "time_slot" character varying, "user_id" bigint NOT NULL, "doctor_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (53.7ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_doctor_id" ON "appointments" ("doctor_id")[0m
+  [1m[35m (53.3ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_user_id" ON "appointments" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "doctors" CASCADE[0m
+  [1m[35m (187.0ms)[0m  [1m[35mCREATE TABLE "doctors" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "specialty" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (158.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "patient" boolean DEFAULT FALSE, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (42.9ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_8db8e1e8a5"
+FOREIGN KEY ("doctor_id")
+  REFERENCES "doctors" ("id")
+[0m
+  [1m[35m (8.3ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_9e31213785"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (96.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220611105051)[0m
+  [1m[35m (8.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220608163807),
+(20220611094534);
+
+[0m
+  [1m[35m (176.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (22.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-06-14 18:36:30.293211"], ["updated_at", "2022-06-14 18:36:30.293211"]]
+  [1m[36mTRANSACTION (14.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.7ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-06-14 18:36:30.343873"], ["key", "environment"]]
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "7bc94900d350afa9cc9196f0f831ba4a196dd375"], ["created_at", "2022-06-14 18:36:30.363294"], ["updated_at", "2022-06-14 18:36:30.363294"]]
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for ::1 at 2022-06-14 19:37:23 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"first_name"=>"chensoh", "last_name"=>"Blanko", "email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "chensoh"], ["last_name", "Blanko"], ["email", "che.blancoo@gmail.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-06-14 18:37:24.284216"], ["updated_at", "2022-06-14 18:37:24.284216"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (18.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "che.blancoo@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-06-14 18:37:24.317228"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 201 Created in 1082ms (Views: 0.3ms | ActiveRecord: 51.4ms | Allocations: 28011)
+
+
+Started POST "/auth/login" for ::1 at 2022-06-14 19:39:10 +0100
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f005c326028>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f005c326028>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f005c326028>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f005c326028>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 15ms (Views: 0.6ms | ActiveRecord: 2.5ms | Allocations: 2501)
+
+
+Started POST "/auth/login" for ::1 at 2022-06-14 19:39:39 +0100
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f00440c7998>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f00440c7998>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f00440c7998>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f00440c7998>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 12ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 2483)
+
+
+Started POST "/auth/login" for ::1 at 2022-06-14 19:40:33 +0100
+  
+ArgumentError (Before process_action callback :authorize_request has not been defined):
+  
+app/controllers/authentication_controller.rb:2:in `<class:AuthenticationController>'
+app/controllers/authentication_controller.rb:1:in `<main>'
+Started POST "/auth/login" for ::1 at 2022-06-14 19:40:46 +0100
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f005042cb68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f005042cb68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f005042cb68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f005042cb68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 12ms (Views: 0.3ms | ActiveRecord: 2.4ms | Allocations: 2483)
+
+
+Started POST "/auth/login" for ::1 at 2022-06-14 19:42:24 +0100
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f00440c0530>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f00440c0530>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f00440c0530>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f00440c0530>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 10ms (Views: 0.4ms | ActiveRecord: 2.6ms | Allocations: 2449)
+
+
+Started POST "/auth/login" for ::1 at 2022-06-14 19:42:52 +0100
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f005c0e4a30>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f005c0e4a30>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f005c0e4a30>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f005c0e4a30>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 16023ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 68000)
+
+
+Started POST "/auth/login" for ::1 at 2022-06-14 19:43:49 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f6b489d6c68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f6b489d6c68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f6b489d6c68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f6b489d6c68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 55681ms (Views: 0.3ms | ActiveRecord: 4.0ms | Allocations: 71091)
+
+
+Started POST "/auth/login" for ::1 at 2022-06-14 19:44:51 +0100
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f6b300dae38>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f6b300dae38>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1001)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/authentication_controller.rb:7:in `authenticate'
+Started POST "/auth/login" for ::1 at 2022-06-14 19:45:09 +0100
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f6b3431dd68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f6b3431dd68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f6b3431dd68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f6b3431dd68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f6b3431dd68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: AuthenticationController, action: authenticate, request: #<ActionDispatch::Request:0x00007f6b3431dd68>, params: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "controller"=>"authentication", "action"=>"authenticate", "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}} }[0m
+Completed 500 Internal Server Error in 143698ms (ActiveRecord: 0.0ms | Allocations: 6594)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/authentication_controller.rb:7:in `authenticate'
+Started POST "/auth/login" for ::1 at 2022-06-14 19:47:59 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 500 Internal Server Error in 697ms (ActiveRecord: 8.5ms | Allocations: 24051)
+
+
+  
+NoMethodError (undefined method `email' for nil:NilClass):
+  
+app/controllers/authentication_controller.rb:9:in `authenticate'
+Started POST "/auth/login" for ::1 at 2022-06-14 19:49:01 +0100
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 660ms (Views: 0.3ms | ActiveRecord: 7.6ms | Allocations: 4253)
+
+
+Started POST "/api/doctors" for ::1 at 2022-06-14 19:51:49 +0100
+  
+ActionController::RoutingError (uninitialized constant Api::DoctorsController):
+  
+Started POST "/api/doctors" for ::1 at 2022-06-14 19:52:45 +0100
+Processing by Api::V1::DoctorsController#create as */*
+  Parameters: {"doctor"=>{"first_name"=>"", "last_name"=>"Blanko", "specialty"=>"surgeoan", "email"=>"zep@doctor.com"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/doctors_controller.rb:4:in `create'
+  [1m[36mDoctor Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "zep@doctor.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/doctors_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/doctors_controller.rb:4:in `create'
+Completed 422 Unprocessable Entity in 49ms (Views: 0.2ms | ActiveRecord: 14.4ms | Allocations: 10008)
+
+
+Started POST "/api/doctors" for ::1 at 2022-06-14 19:53:06 +0100
+Processing by Api::V1::DoctorsController#create as */*
+  Parameters: {"doctor"=>{"first_name"=>"chensh", "last_name"=>"Blanko", "specialty"=>"surgeoan", "email"=>"zep@doctor.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/doctors_controller.rb:4:in `create'
+  [1m[36mDoctor Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "zep@doctor.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/doctors_controller.rb:4:in `create'
+  [1m[36mDoctor Create (1.2ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "chensh"], ["last_name", "Blanko"], ["specialty", "surgeoan"], ["email", "zep@doctor.com"], ["created_at", "2022-06-14 18:53:06.296049"], ["updated_at", "2022-06-14 18:53:06.296049"]]
+  ↳ app/controllers/api/v1/doctors_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (18.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/doctors_controller.rb:4:in `create'
+Completed 200 OK in 34ms (Views: 0.8ms | ActiveRecord: 20.8ms | Allocations: 3260)
+
+
+Started POST "/api/users/1/appointments" for ::1 at 2022-06-14 19:55:47 +0100
+Processing by Api::V1::AppointmentsController#create as */*
+  Parameters: {"doctor"=>{"first_name"=>"chensh", "last_name"=>"Blanko", "specialty"=>"surgeoan", "email"=>"zep@doctor.com"}, "user_id"=>"1", "appointment"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 6.9ms | Allocations: 5341)
+
+
+  
+NoMethodError (undefined method `appointments' for #<User:0x00007ff9a4d29c68>):
+  
+app/controllers/api/v1/appointments_controller.rb:7:in `create'
+Started POST "/api/users/1/appointments" for ::1 at 2022-06-14 19:56:42 +0100
+Processing by Api::V1::AppointmentsController#create as */*
+  Parameters: {"doctor"=>{"first_name"=>"chensh", "last_name"=>"Blanko", "specialty"=>"surgeoan", "email"=>"zep@doctor.com"}, "user_id"=>"1", "appointment"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+Completed 400 Bad Request in 138ms (ActiveRecord: 8.5ms | Allocations: 7219)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: appointment):
+  
+app/controllers/api/v1/appointments_controller.rb:38:in `appointment_params'
+app/controllers/api/v1/appointments_controller.rb:7:in `create'
+Started POST "/api/users/1/appointments" for ::1 at 2022-06-14 19:57:19 +0100
+Processing by Api::V1::AppointmentsController#create as */*
+  Parameters: {"appointment"=>{"message"=>"first appointment", "date_of_appointment"=>"14-07-2022", "time_slot"=>"12:30 Noon", "user_id"=>"1"}, "user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/appointments_controller.rb:8:in `create'
+  [1m[36mAppointment Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."date_of_appointment" = $1 LIMIT $2[0m  [["date_of_appointment", "14-07-2022"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/appointments_controller.rb:8:in `create'
+  [1m[36mAppointment Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."time_slot" = $1 LIMIT $2[0m  [["time_slot", "12:30 Noon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/appointments_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/appointments_controller.rb:8:in `create'
+Completed 422 Unprocessable Entity in 134ms (Views: 0.3ms | ActiveRecord: 5.6ms | Allocations: 10265)
+
+
+Started POST "/api/users/1/appointments" for ::1 at 2022-06-14 19:57:43 +0100
+Processing by Api::V1::AppointmentsController#create as */*
+  Parameters: {"appointment"=>{"message"=>"first appointment", "date_of_appointment"=>"14-07-2022", "time_slot"=>"12:30 Noon", "doctor_id"=>1}, "user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/appointments_controller.rb:8:in `create'
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/appointments_controller.rb:8:in `create'
+  [1m[36mAppointment Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."date_of_appointment" = $1 LIMIT $2[0m  [["date_of_appointment", "14-07-2022"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/appointments_controller.rb:8:in `create'
+  [1m[36mAppointment Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."time_slot" = $1 LIMIT $2[0m  [["time_slot", "12:30 Noon"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/appointments_controller.rb:8:in `create'
+  [1m[36mAppointment Create (23.1ms)[0m  [1m[32mINSERT INTO "appointments" ("message", "date_of_appointment", "time_slot", "user_id", "doctor_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["message", "first appointment"], ["date_of_appointment", "14-07-2022"], ["time_slot", "12:30 Noon"], ["user_id", 1], ["doctor_id", 1], ["created_at", "2022-06-14 18:57:43.807277"], ["updated_at", "2022-06-14 18:57:43.807277"]]
+  ↳ app/controllers/api/v1/appointments_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (41.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/appointments_controller.rb:8:in `create'
+Completed 200 OK in 99ms (Views: 0.9ms | ActiveRecord: 71.1ms | Allocations: 6586)
+
+
+Started POST "/api/users/1/appointments/1" for ::1 at 2022-06-14 20:01:11 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/api/users/1/appointments/1"):
+  
+Started PUT "/api/users/1/appointments/1" for ::1 at 2022-06-14 20:01:20 +0100
+Processing by Api::V1::AppointmentsController#update as */*
+  Parameters: {"appointment"=>{"message"=>"updated appointment", "date_of_appointment"=>"14-07-2022", "time_slot"=>"11:30 Noon", "doctor_id"=>1}, "user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/appointments_controller.rb:22:in `update'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/appointments_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/appointments_controller.rb:23:in `update'
+  [1m[36mDoctor Load (0.5ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" WHERE "doctors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/appointments_controller.rb:23:in `update'
+  [1m[36mAppointment Exists? (3.9ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."date_of_appointment" = $1 AND "appointments"."id" != $2 LIMIT $3[0m  [["date_of_appointment", "14-07-2022"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/appointments_controller.rb:23:in `update'
+  [1m[36mAppointment Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."time_slot" = $1 AND "appointments"."id" != $2 LIMIT $3[0m  [["time_slot", "11:30 Noon"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/appointments_controller.rb:23:in `update'
+  [1m[36mAppointment Update (0.6ms)[0m  [1m[33mUPDATE "appointments" SET "message" = $1, "time_slot" = $2, "updated_at" = $3 WHERE "appointments"."id" = $4[0m  [["message", "updated appointment"], ["time_slot", "11:30 Noon"], ["updated_at", "2022-06-14 19:01:20.878904"], ["id", 1]]
+  ↳ app/controllers/api/v1/appointments_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (11.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/appointments_controller.rb:23:in `update'
+Completed 200 OK in 43ms (Views: 0.3ms | ActiveRecord: 18.0ms | Allocations: 6166)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:02:54 +0100
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"appointment"=>{"message"=>"updated appointment", "date_of_appointment"=>"14-07-2022", "time_slot"=>"11:30 Noon", "doctor_id"=>1}, "user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+Completed 204 No Content in 4ms (ActiveRecord: 0.3ms | Allocations: 623)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:03:04 +0100
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+Completed 204 No Content in 3ms (ActiveRecord: 0.3ms | Allocations: 619)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:04:53 +0100
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+Completed 204 No Content in 28ms (ActiveRecord: 5.3ms | Allocations: 6193)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:07:24 +0100
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:19:in `user'
+Completed 204 No Content in 58341ms (ActiveRecord: 7.8ms | Allocations: 68520)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:08:49 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:19:in `user'
+Completed 204 No Content in 13230ms (ActiveRecord: 7.2ms | Allocations: 77745)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:09:08 +0100
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:19:in `user'
+Completed 204 No Content in 33ms (ActiveRecord: 7.6ms | Allocations: 6252)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:09:29 +0100
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:19:in `user'
+Completed 204 No Content in 3ms (ActiveRecord: 0.4ms | Allocations: 616)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:11:04 +0100
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:19:in `user'
+Completed 204 No Content in 94675ms (ActiveRecord: 6.9ms | Allocations: 9392)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:12:46 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+Completed 204 No Content in 34854ms (ActiveRecord: 10.3ms | Allocations: 78014)
+
+
+Started POST "/auth/login" for ::1 at 2022-06-14 20:14:51 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 741ms (Views: 0.2ms | ActiveRecord: 7.8ms | Allocations: 24822)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:15:39 +0100
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+Completed 204 No Content in 18811ms (ActiveRecord: 0.5ms | Allocations: 56018)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:16:09 +0100
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+Completed 204 No Content in 28ms (ActiveRecord: 5.3ms | Allocations: 6253)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:16:42 +0100
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+  [1m[36mAppointment Load (1.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+  ↳ app/controllers/concerns/response.rb:3:in `json_response'
+Completed 200 OK in 50ms (Views: 12.2ms | ActiveRecord: 11.0ms | Allocations: 11041)
+
+
+Started GET "/api/users/1/appointments" for ::1 at 2022-06-14 20:16:58 +0100
+Processing by Api::V1::AppointmentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/concerns/response.rb:3:in `json_response'
+Completed 200 OK in 54ms (Views: 19.8ms | ActiveRecord: 8.2ms | Allocations: 12890)
+
+
