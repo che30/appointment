@@ -2423,3 +2423,28 @@ ActionController::ParameterMissing (param is missing or the value is empty: user
   
 app/controllers/users_controller.rb:27:in `user_params'
 app/controllers/users_controller.rb:11:in `create'
+Started POST "/auth/login" for ::1 at 2022-06-14 22:55:37 +0100
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 683ms (Views: 0.3ms | ActiveRecord: 16.0ms | Allocations: 7124)
+
+
+Started POST "/auth/login" for ::1 at 2022-06-14 22:56:31 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"che.blancoo@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "che.blancoo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 709ms (Views: 0.6ms | ActiveRecord: 9.5ms | Allocations: 24822)
+
+
