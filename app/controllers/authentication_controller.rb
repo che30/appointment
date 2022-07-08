@@ -5,8 +5,8 @@ class AuthenticationController < ApplicationController
     # byebug
     auth_token =
       AuthenticateUser.new(params[:user][:email], params[:user][:password]).call
-    user = User.find_by(email: params[:email])
-    json_response({auth_token: auth_token})
+    user = User.find_by(email: params[:user][:email])
+    json_response({ auth_token: auth_token, patient: user.patient })
   end
 
   private

@@ -19,6 +19,7 @@ class UsersController < ApplicationController
       # render json: { status: 500, errors: response}
     end
   end
+  
 
   private
 

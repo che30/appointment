@@ -2448,3 +2448,1410 @@ Processing by AuthenticationController#authenticate as */*
 Completed 200 OK in 709ms (Views: 0.6ms | ActiveRecord: 9.5ms | Allocations: 24822)
 
 
+Started OPTIONS "/api/users" for 127.0.0.1 at 2022-07-06 09:50:40 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (45.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/users"):
+  
+Started POST "/api/users" for 127.0.0.1 at 2022-07-06 09:57:52 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant Api::V1::UsersController):
+  
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 10:02:33 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"tester@user.com"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (458.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (47.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 952ms (Views: 0.3ms | ActiveRecord: 856.3ms | Allocations: 10684)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 11:42:36 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (45.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (15.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 727ms (Views: 0.3ms | ActiveRecord: 22.3ms | Allocations: 25085)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 11:47:46 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (53.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 427ms (Views: 0.3ms | ActiveRecord: 54.0ms | Allocations: 2880)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 11:50:48 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"che nsoh", "last_name"=>"blanchard", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (45.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (87.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (187.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "che nsoh"], ["last_name", "blanchard"], ["email", "tester@user.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-06 10:50:50.239955"], ["updated_at", "2022-07-06 10:50:50.239955"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (108.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (19.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "tester@user.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Update (174.9ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-06 10:50:50.619729"], ["id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (14.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 201 Created in 4132ms (Views: 0.3ms | ActiveRecord: 638.7ms | Allocations: 7743)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (22.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (42.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (695.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "appoint_development"[0m
+  [1m[35m (312.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "appoint_test"[0m
+  [1m[35m (1590.5ms)[0m  [1m[35mCREATE DATABASE "appoint_development" ENCODING = 'unicode'[0m
+  [1m[35m (755.1ms)[0m  [1m[35mCREATE DATABASE "appoint_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (20.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "appointments" CASCADE[0m
+  [1m[35m (126.8ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "message" character varying, "date_of_appointment" character varying, "time_slot" character varying, "user_id" bigint NOT NULL, "doctor_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (62.8ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_doctor_id" ON "appointments" ("doctor_id")[0m
+  [1m[35m (64.2ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_user_id" ON "appointments" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "doctors" CASCADE[0m
+  [1m[35m (107.1ms)[0m  [1m[35mCREATE TABLE "doctors" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "specialty" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (128.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "patient" boolean DEFAULT FALSE, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (29.9ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_8db8e1e8a5"
+FOREIGN KEY ("doctor_id")
+  REFERENCES "doctors" ("id")
+[0m
+  [1m[35m (8.0ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_9e31213785"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (118.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220611105051)[0m
+  [1m[35m (9.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220608163807),
+(20220611094534);
+
+[0m
+  [1m[35m (95.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-07-06 11:23:41.406425"], ["updated_at", "2022-07-06 11:23:41.406425"]]
+  [1m[36mTRANSACTION (16.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "7bc94900d350afa9cc9196f0f831ba4a196dd375"], ["created_at", "2022-07-06 11:23:41.446644"], ["updated_at", "2022-07-06 11:23:41.446644"]]
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "appointments" CASCADE[0m
+  [1m[35m (143.7ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "message" character varying, "date_of_appointment" character varying, "time_slot" character varying, "user_id" bigint NOT NULL, "doctor_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (118.8ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_doctor_id" ON "appointments" ("doctor_id")[0m
+  [1m[35m (52.7ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_user_id" ON "appointments" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "doctors" CASCADE[0m
+  [1m[35m (105.3ms)[0m  [1m[35mCREATE TABLE "doctors" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "specialty" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (94.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "patient" boolean DEFAULT FALSE, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.7ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_8db8e1e8a5"
+FOREIGN KEY ("doctor_id")
+  REFERENCES "doctors" ("id")
+[0m
+  [1m[35m (7.8ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_9e31213785"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (106.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220611105051)[0m
+  [1m[35m (9.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220608163807),
+(20220611094534);
+
+[0m
+  [1m[35m (107.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-07-06 11:23:42.301965"], ["updated_at", "2022-07-06 11:23:42.301965"]]
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-07-06 11:23:42.325534"], ["key", "environment"]]
+  [1m[36mTRANSACTION (10.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "7bc94900d350afa9cc9196f0f831ba4a196dd375"], ["created_at", "2022-07-06 11:23:42.344590"], ["updated_at", "2022-07-06 11:23:42.344590"]]
+  [1m[36mTRANSACTION (12.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 12:24:29 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"che nsoh", "last_name"=>"blanchard", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "che nsoh"], ["last_name", "blanchard"], ["email", "tester@user.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-06 11:24:31.525182"], ["updated_at", "2022-07-06 11:24:31.525182"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "tester@user.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-06 11:24:31.544752"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (12.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 201 Created in 1199ms (Views: 0.4ms | ActiveRecord: 35.0ms | Allocations: 27723)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 13:50:29 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"che nsoh", "last_name"=>"blanchard", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (260.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (25.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 25121ms (Views: 1630.8ms | ActiveRecord: 696.1ms | Allocations: 5945)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 13:53:10 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"che nsoh", "last_name"=>"blanchard", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (31.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (19.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 729ms (Views: 0.3ms | ActiveRecord: 52.0ms | Allocations: 2448)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 13:54:51 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"che nsoh", "last_name"=>"blanchard", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 611ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 2448)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 13:56:56 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"che nsoh", "last_name"=>"blanchard", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 502ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 2449)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 13:57:55 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (5.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 1486ms (Views: 0.2ms | ActiveRecord: 6.5ms | Allocations: 2433)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 14:01:06 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (207.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (274.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (22.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 4992ms (Views: 209.7ms | ActiveRecord: 505.0ms | Allocations: 2439)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 14:13:25 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (49.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 1198ms (Views: 0.4ms | ActiveRecord: 115.7ms | Allocations: 4595)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 14:14:10 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 908ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 2428)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 14:14:45 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 15078ms (Views: 13.1ms | ActiveRecord: 1.1ms | Allocations: 2436)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 14:25:25 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester2@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester2@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (108.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "CHE"], ["last_name", "BLANCHARD"], ["email", "tester2@user.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-06 13:25:26.221568"], ["updated_at", "2022-07-06 13:25:26.221568"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (76.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (11.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "tester2@user.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Update (51.1ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-06 13:25:26.971555"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (25.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester2@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester2@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 201 Created in 2298ms (Views: 20.2ms | ActiveRecord: 297.8ms | Allocations: 8295)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 14:27:47 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester2@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester2@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 410ms (Views: 6.2ms | ActiveRecord: 1.2ms | Allocations: 2427)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 14:29:03 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester2@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester2@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 414ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 2428)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 14:34:11 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 498ms (Views: 13.7ms | ActiveRecord: 1.2ms | Allocations: 2427)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 14:39:39 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 517ms (Views: 0.4ms | ActiveRecord: 12.8ms | Allocations: 4592)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 14:48:23 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 476ms (Views: 0.3ms | ActiveRecord: 16.2ms | Allocations: 4592)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 14:48:28 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 403ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 2427)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 14:48:31 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 413ms (Views: 6.3ms | ActiveRecord: 1.2ms | Allocations: 2428)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 19:12:02 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (48.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NameError (undefined local variable or method `length' for #<Class:0x00007f7280cb7010>):
+  
+app/models/user.rb:6:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 19:13:09 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 448ms (ActiveRecord: 80.9ms | Allocations: 9109)
+
+
+  
+NoMethodError (undefined method `pass_word' for #<User:0x00007f7280f55d80>
+Did you mean?  password
+               password=):
+  
+app/controllers/users_controller.rb:11:in `create'
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 19:13:50 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"CHE", "last_name"=>"BLANCHARD", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (27.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Completed 401 Unauthorized in 548ms (Views: 0.3ms | ActiveRecord: 32.2ms | Allocations: 6958)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-06 23:11:16 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (47.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"third user", "last_name"=>"blanch ", "email"=>"third@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (32.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "third@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (89.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "third user"], ["last_name", "blanch "], ["email", "third@user.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-06 22:11:20.012253"], ["updated_at", "2022-07-06 22:11:20.012253"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (174.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "third@user.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Update (108.5ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-06 22:11:20.286832"], ["id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (53.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "third@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "third@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 201 Created in 1878ms (Views: 0.3ms | ActiveRecord: 561.8ms | Allocations: 27769)
+
+
+  [1m[36mUser Load (54.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-07 10:48:29 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (12.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 895ms (Views: 0.7ms | ActiveRecord: 12.3ms | Allocations: 24910)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-07 23:24:36 +0100
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-07 23:24:36 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (54.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (33.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (53.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 200 OK in 2162ms (Views: 82.0ms | ActiveRecord: 188.0ms | Allocations: 28677)
+
+
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 2165ms (Views: 0.5ms | ActiveRecord: 109.2ms | Allocations: 29044)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 00:27:41 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (36.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (31.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 1112ms (Views: 0.6ms | ActiveRecord: 120.7ms | Allocations: 24912)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 00:39:08 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (14.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 731ms (Views: 0.3ms | ActiveRecord: 30.9ms | Allocations: 3918)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 00:49:58 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (15.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 697ms (Views: 0.3ms | ActiveRecord: 25.2ms | Allocations: 3894)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 00:55:16 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 662ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 1602)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 01:03:34 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 665ms (Views: 0.5ms | ActiveRecord: 12.5ms | Allocations: 3894)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 01:09:04 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 657ms (Views: 0.2ms | ActiveRecord: 9.9ms | Allocations: 3872)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 01:12:56 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 639ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 1604)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 10:05:38 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (195.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 4671ms (Views: 224.0ms | ActiveRecord: 481.4ms | Allocations: 3911)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 10:07:47 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 975ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 1606)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 10:11:16 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 707ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 1601)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 10:12:46 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 805ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 1622)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 10:14:09 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 712ms (Views: 0.5ms | ActiveRecord: 1.4ms | Allocations: 1604)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 10:16:49 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 763ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 1602)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 10:17:26 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 689ms (Views: 13.6ms | ActiveRecord: 1.0ms | Allocations: 1602)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 10:18:21 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 712ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 1604)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-08 10:19:04 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Atoh", "last_name"=>"denis", "email"=>"atoh@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "atoh@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (201.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Atoh"], ["last_name", "denis"], ["email", "atoh@user.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 09:19:10.568072"], ["updated_at", "2022-07-08 09:19:10.568072"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (67.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (20.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "atoh@user.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Update (51.9ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-08 09:19:13.245736"], ["id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (19.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "atoh@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "atoh@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 201 Created in 5537ms (Views: 9.5ms | ActiveRecord: 362.3ms | Allocations: 6763)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 11:42:32 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 1509ms (Views: 0.5ms | ActiveRecord: 187.7ms | Allocations: 3873)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-08 11:47:55 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"admin ", "last_name"=>"user", "email"=>"admin@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (10.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "admin "], ["last_name", "user"], ["email", "admin@user.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 10:47:57.494958"], ["updated_at", "2022-07-08 10:47:57.494958"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (133.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin@user.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-08 10:47:58.483767"], ["id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (15.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 201 Created in 3272ms (Views: 0.2ms | ActiveRecord: 291.4ms | Allocations: 8297)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 11:50:55 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"admin@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"admin@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 720ms (Views: 5.9ms | ActiveRecord: 1.0ms | Allocations: 1605)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 12:03:42 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (43.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 986ms (Views: 0.4ms | ActiveRecord: 147.7ms | Allocations: 3896)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (463.8ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (221.0ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Zephania"], ["last_name", "Nkwenti"], ["specialty", "ophtamology"], ["email", "zeph@doctor.com"], ["created_at", "2022-07-08 11:47:04.114359"], ["updated_at", "2022-07-08 11:47:04.114359"]]
+  [1m[36mTRANSACTION (242.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "anangson@doctor.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Anangsong"], ["last_name", "Desmond"], ["specialty", "pediatric"], ["email", "anangson@doctor.com"], ["created_at", "2022-07-08 11:47:04.588746"], ["updated_at", "2022-07-08 11:47:04.588746"]]
+  [1m[36mTRANSACTION (115.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "nsah@doctor.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Nsah"], ["last_name", "larissa"], ["specialty", "Neurologist"], ["email", "nsah@doctor.com"], ["created_at", "2022-07-08 11:47:04.710570"], ["updated_at", "2022-07-08 11:47:04.710570"]]
+  [1m[36mTRANSACTION (115.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "ndangoh@doctor.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.8ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ndangoh"], ["last_name", "Eveline"], ["specialty", "general"], ["email", "ndangoh@doctor.com"], ["created_at", "2022-07-08 11:47:04.837169"], ["updated_at", "2022-07-08 11:47:04.837169"]]
+  [1m[36mTRANSACTION (153.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "koudom@doctor.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.3ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Koudoum"], ["last_name", "laurance"], ["specialty", "dermatologist"], ["email", "koudom@doctor.com"], ["created_at", "2022-07-08 11:47:04.998917"], ["updated_at", "2022-07-08 11:47:04.998917"]]
+  [1m[36mTRANSACTION (126.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "Awah@doctor.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.7ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Nsoh"], ["last_name", "Awah"], ["specialty", "dentist"], ["email", "Awah@doctor.com"], ["created_at", "2022-07-08 11:47:05.135029"], ["updated_at", "2022-07-08 11:47:05.135029"]]
+  [1m[36mTRANSACTION (214.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Zephania"], ["last_name", "Nkwenti"], ["email", "zeph@doctor.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:47:05.828848"], ["updated_at", "2022-07-08 11:47:05.828848"]]
+  [1m[36mTRANSACTION (472.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "anangson@doctor.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Anangsong"], ["last_name", "Desmond"], ["email", "anangson@doctor.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:47:06.624767"], ["updated_at", "2022-07-08 11:47:06.624767"]]
+  [1m[36mTRANSACTION (291.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nsah@doctor.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Nsah"], ["last_name", "larissa"], ["email", "nsah@doctor.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:47:07.284594"], ["updated_at", "2022-07-08 11:47:07.284594"]]
+  [1m[36mTRANSACTION (807.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ndangoh@doctor.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Ndangoh"], ["last_name", "Eveline"], ["email", "ndangoh@doctor.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:47:08.402781"], ["updated_at", "2022-07-08 11:47:08.402781"]]
+  [1m[36mTRANSACTION (301.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "koudom@doctor.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Koudoum"], ["last_name", "laurance"], ["email", "koudom@doctor.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:47:09.048699"], ["updated_at", "2022-07-08 11:47:09.048699"]]
+  [1m[36mTRANSACTION (149.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Awah@doctor.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Nsoh"], ["last_name", "Awah"], ["email", "Awah@doctor.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:47:09.528054"], ["updated_at", "2022-07-08 11:47:09.528054"]]
+  [1m[36mTRANSACTION (12.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mDoctor Load (1.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (32.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (447.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "appoint_development"[0m
+  [1m[35m (336.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "appoint_test"[0m
+  [1m[35m (1892.2ms)[0m  [1m[35mCREATE DATABASE "appoint_development" ENCODING = 'unicode'[0m
+  [1m[35m (831.7ms)[0m  [1m[35mCREATE DATABASE "appoint_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "appointments" CASCADE[0m
+  [1m[35m (305.6ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "message" character varying, "date_of_appointment" character varying, "time_slot" character varying, "user_id" bigint NOT NULL, "doctor_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (54.1ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_doctor_id" ON "appointments" ("doctor_id")[0m
+  [1m[35m (52.7ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_user_id" ON "appointments" ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "doctors" CASCADE[0m
+  [1m[35m (118.5ms)[0m  [1m[35mCREATE TABLE "doctors" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "specialty" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (116.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "patient" boolean DEFAULT FALSE, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.7ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_8db8e1e8a5"
+FOREIGN KEY ("doctor_id")
+  REFERENCES "doctors" ("id")
+[0m
+  [1m[35m (8.5ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_9e31213785"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (141.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (13.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220611105051)[0m
+  [1m[35m (10.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220608163807),
+(20220611094534);
+
+[0m
+  [1m[35m (75.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-07-08 11:50:44.718749"], ["updated_at", "2022-07-08 11:50:44.718749"]]
+  [1m[36mTRANSACTION (33.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "7bc94900d350afa9cc9196f0f831ba4a196dd375"], ["created_at", "2022-07-08 11:50:44.767925"], ["updated_at", "2022-07-08 11:50:44.767925"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "appointments" CASCADE[0m
+  [1m[35m (162.9ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "message" character varying, "date_of_appointment" character varying, "time_slot" character varying, "user_id" bigint NOT NULL, "doctor_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (52.1ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_doctor_id" ON "appointments" ("doctor_id")[0m
+  [1m[35m (42.2ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_user_id" ON "appointments" ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "doctors" CASCADE[0m
+  [1m[35m (127.8ms)[0m  [1m[35mCREATE TABLE "doctors" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "specialty" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (149.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "patient" boolean DEFAULT FALSE, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (19.0ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_8db8e1e8a5"
+FOREIGN KEY ("doctor_id")
+  REFERENCES "doctors" ("id")
+[0m
+  [1m[35m (8.0ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_9e31213785"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (119.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (13.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220611105051)[0m
+  [1m[35m (10.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220608163807),
+(20220611094534);
+
+[0m
+  [1m[35m (107.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-07-08 11:50:45.687570"], ["updated_at", "2022-07-08 11:50:45.687570"]]
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-07-08 11:50:45.708578"], ["key", "environment"]]
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "7bc94900d350afa9cc9196f0f831ba4a196dd375"], ["created_at", "2022-07-08 11:50:45.729313"], ["updated_at", "2022-07-08 11:50:45.729313"]]
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (1.1ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Zephania"], ["last_name", "Nkwenti"], ["specialty", "ophtamology"], ["email", "zeph@doctor.com"], ["created_at", "2022-07-08 11:50:45.829904"], ["updated_at", "2022-07-08 11:50:45.829904"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "anangson@doctor.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.5ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Anangsong"], ["last_name", "Desmond"], ["specialty", "pediatric"], ["email", "anangson@doctor.com"], ["created_at", "2022-07-08 11:50:45.843412"], ["updated_at", "2022-07-08 11:50:45.843412"]]
+  [1m[36mTRANSACTION (11.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "nsah@doctor.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.5ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Nsah"], ["last_name", "larissa"], ["specialty", "Neurologist"], ["email", "nsah@doctor.com"], ["created_at", "2022-07-08 11:50:45.865079"], ["updated_at", "2022-07-08 11:50:45.865079"]]
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "ndangoh@doctor.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ndangoh"], ["last_name", "Eveline"], ["specialty", "general"], ["email", "ndangoh@doctor.com"], ["created_at", "2022-07-08 11:50:45.889141"], ["updated_at", "2022-07-08 11:50:45.889141"]]
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "koudom@doctor.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Koudoum"], ["last_name", "laurance"], ["specialty", "dermatologist"], ["email", "koudom@doctor.com"], ["created_at", "2022-07-08 11:50:45.909644"], ["updated_at", "2022-07-08 11:50:45.909644"]]
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "Awah@doctor.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.5ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Nsoh"], ["last_name", "Awah"], ["specialty", "dentist"], ["email", "Awah@doctor.com"], ["created_at", "2022-07-08 11:50:45.929998"], ["updated_at", "2022-07-08 11:50:45.929998"]]
+  [1m[36mTRANSACTION (13.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Zephania"], ["last_name", "Nkwenti"], ["email", "zeph@doctor.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:50:46.292169"], ["updated_at", "2022-07-08 11:50:46.292169"]]
+  [1m[36mTRANSACTION (17.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "anangson@doctor.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Anangsong"], ["last_name", "Desmond"], ["email", "anangson@doctor.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:50:46.631124"], ["updated_at", "2022-07-08 11:50:46.631124"]]
+  [1m[36mTRANSACTION (11.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nsah@doctor.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Nsah"], ["last_name", "larissa"], ["email", "nsah@doctor.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:50:46.962464"], ["updated_at", "2022-07-08 11:50:46.962464"]]
+  [1m[36mTRANSACTION (13.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ndangoh@doctor.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Ndangoh"], ["last_name", "Eveline"], ["email", "ndangoh@doctor.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:50:47.294198"], ["updated_at", "2022-07-08 11:50:47.294198"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "koudom@doctor.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Koudoum"], ["last_name", "laurance"], ["email", "koudom@doctor.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:50:47.612662"], ["updated_at", "2022-07-08 11:50:47.612662"]]
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Awah@doctor.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Nsoh"], ["last_name", "Awah"], ["email", "Awah@doctor.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:50:47.952029"], ["updated_at", "2022-07-08 11:50:47.952029"]]
+  [1m[36mTRANSACTION (11.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoctor Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mDoctor Load (1.4ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 12:53:19 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (16.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 525ms (Views: 0.7ms | ActiveRecord: 33.2ms | Allocations: 4871)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 12:54:46 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 44ms (Views: 14.3ms | ActiveRecord: 0.7ms | Allocations: 562)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 12:55:15 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 20ms (Views: 0.8ms | ActiveRecord: 0.6ms | Allocations: 562)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 12:56:04 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 15ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 562)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 12:56:18 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 62ms (Views: 15.1ms | ActiveRecord: 0.4ms | Allocations: 562)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-07-08 12:59:25 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"che nsoh", "last_name"=>"blanchard", "email"=>"tester@user.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "che nsoh"], ["last_name", "blanchard"], ["email", "tester@user.com"], ["patient", false], ["password_digest", "[FILTERED]"], ["created_at", "2022-07-08 11:59:26.397688"], ["updated_at", "2022-07-08 11:59:26.397688"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (22.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "tester@user.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-08 11:59:26.603514"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (21.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 201 Created in 1568ms (Views: 0.3ms | ActiveRecord: 50.2ms | Allocations: 7745)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:06:01 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 500 Internal Server Error in 1093ms (ActiveRecord: 11.3ms | Allocations: 7603)
+
+
+  
+NoMethodError (undefined method `patient' for nil:NilClass):
+  
+app/controllers/authentication_controller.rb:10:in `authenticate'
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:06:50 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 500 Internal Server Error in 157774ms (ActiveRecord: 15.1ms | Allocations: 61459)
+
+
+  
+NoMethodError (undefined method `patient' for nil:NilClass):
+  
+app/controllers/authentication_controller.rb:10:in `authenticate'
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:09:42 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 34770ms (Views: 0.9ms | ActiveRecord: 8.8ms | Allocations: 9315)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:11:27 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 670ms (Views: 0.3ms | ActiveRecord: 6.8ms | Allocations: 4992)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:12:38 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 654ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1427)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:15:14 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 624ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1429)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:25:24 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 647ms (Views: 0.3ms | ActiveRecord: 9.0ms | Allocations: 3736)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:30:05 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 627ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1427)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:35:28 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 648ms (Views: 0.3ms | ActiveRecord: 10.9ms | Allocations: 3696)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:39:05 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 643ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1431)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:39:56 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 736ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 1427)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:41:26 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 706ms (Views: 1.2ms | ActiveRecord: 0.6ms | Allocations: 1427)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:44:36 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"| zeph@doctor.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"| zeph@doctor.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "| zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+Completed 401 Unauthorized in 322ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1606)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:44:47 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"zeph@doctor.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"zeph@doctor.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 676ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 1428)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:45:52 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 631ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1427)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:46:37 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"zeph@doctor.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"zeph@doctor.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 635ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1430)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 13:48:04 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 628ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1428)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 14:13:33 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 884ms (Views: 0.6ms | ActiveRecord: 110.2ms | Allocations: 3696)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 14:15:14 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 706ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 1427)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 14:16:42 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 699ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 1427)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 14:18:28 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 693ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1428)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 14:23:44 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 637ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1428)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 14:25:18 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 694ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1428)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 14:27:10 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 1327ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1429)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 18:38:09 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 1087ms (Views: 0.2ms | ActiveRecord: 143.1ms | Allocations: 3720)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 19:04:27 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (56.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (64.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 2267ms (Views: 0.8ms | ActiveRecord: 258.7ms | Allocations: 24727)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 19:07:53 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"zeph@doctor.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"zeph@doctor.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 670ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1446)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 22:57:11 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 1137ms (Views: 0.4ms | ActiveRecord: 204.3ms | Allocations: 3759)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 22:57:52 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"zeph@doctor.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"zeph@doctor.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zeph@doctor.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 677ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1449)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 23:04:14 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 690ms (Views: 0.2ms | ActiveRecord: 31.8ms | Allocations: 3718)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-08 23:51:59 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"tester@user.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/auth/authenticate_user.rb:18:in `user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@user.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:8:in `authenticate'
+Completed 200 OK in 1079ms (Views: 0.6ms | ActiveRecord: 104.3ms | Allocations: 3699)
+
+

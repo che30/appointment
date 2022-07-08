@@ -4,8 +4,7 @@ RSpec.describe 'Users API', type: :request do
   let(:user) { build(:user) }
   let(:headers) { valid_headers.except('Authorization') }
   let(:valid_attributes) do
-    {user:  attributes_for(:user)}
-   
+    { user: attributes_for(:user) }
   end
 
   # User signup test suite
@@ -27,9 +26,8 @@ RSpec.describe 'Users API', type: :request do
     end
 
     context 'when invalid request' do
-
       it 'does not create a new user' do
-        expect{ post '/signup', params: {}, headers: headers }.to raise_error
+        expect { post '/signup', params: {}, headers: headers }.to raise_error
       end
     end
   end

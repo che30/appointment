@@ -8,8 +8,8 @@ gem 'hirb', '~> 0.7.3'
 gem 'jwt'
 gem 'rails', '~> 7.0.3'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.1'
 gem 'byebug', '~> 11.1', '>= 11.1.3'
+gem 'pg', '~> 1.1'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
@@ -35,7 +35,7 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
+gem 'rack-cors'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
