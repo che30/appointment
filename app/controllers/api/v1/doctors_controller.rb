@@ -1,6 +1,7 @@
 class Api::V1::DoctorsController < ApplicationController
   def index
   @doctors = Doctor.all
+  json_response(@doctors)
   end
   def create
     @doctors = Doctor.new(doctors_params)

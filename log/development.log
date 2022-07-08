@@ -3855,3 +3855,17 @@ Processing by AuthenticationController#authenticate as HTML
 Completed 200 OK in 1079ms (Views: 0.6ms | ActiveRecord: 104.3ms | Allocations: 3699)
 
 
+Started GET "/api/doctors" for 127.0.0.1 at 2022-07-09 00:15:01 +0100
+Processing by Api::V1::DoctorsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+Completed 204 No Content in 1415ms (ActiveRecord: 62.2ms | Allocations: 6483)
+
+
+Started GET "/api/doctors" for 127.0.0.1 at 2022-07-09 00:16:16 +0100
+Processing by Api::V1::DoctorsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/auth/authorize_api_request.rb:18:in `user'
+Completed 204 No Content in 5ms (ActiveRecord: 0.3ms | Allocations: 599)
+
+
