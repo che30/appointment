@@ -1,6 +1,6 @@
 class Api::V1::DoctorsController < ApplicationController
   def index
-  doctors = Doctor.all
+  @doctors = Doctor.all
   end
   def create
     @doctors = Doctor.new(doctors_params)
