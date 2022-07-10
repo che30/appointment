@@ -1,14 +1,17 @@
+# rubocop:disable Style/GuardClause
 class Api::V1::DoctorsController < ApplicationController
   def index
-  @doctors = Doctor.all
-  json_response(@doctors)
+    @doctors = Doctor.all
+    json_response(@doctors)
   end
+
   def doctor_appointments
     if current_user.patient == false
       @appointments = Appointment.where(doctor_id: current_user.id).to_json(include: [:user])
       json_response(@appointments)
     end
   end
+
   def create
     @doctors = Doctor.new(doctors_params)
     if @doctors.save
@@ -28,3 +31,4 @@ class Api::V1::DoctorsController < ApplicationController
                                    :specialty)
   end
 end
+# rubocop:enable Style/GuardClause
