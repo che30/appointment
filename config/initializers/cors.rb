@@ -4,40 +4,40 @@
 # Handle Cross-Origin Resource Sharing (CORS) in order to accept cross-origin AJAX requests.
 
 # Read more: https://github.com/cyu/rack-cors
-# Rails.application.config.middleware.insert_before 0, Rack::Cors do
-# allow do
-#   origins 'https://cheappointment.herokuapp.com'
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+allow do
+  origins 'https://cheappointment.herokuapp.com'
 
-#   resource '/auth/login',
-#     :headers => :any,
-#     :methods => [:post,:get, :options, :head]
-#   resource '/signup',
-#     headers: :any,
-#     methods: [:post,:get, :options, :head]
-#   resource '/users/:id',
-#     headers: :any,
-#     methods: [:get, :options, :head]
-#   resource '/api/doctorAppointments',
-#     headers: :any,
-#     methods: [:post,:get, :options, :head]
-#   resource '/api/doctors',
-#     headers: :any,
-#     methods: [:get, :options,:post, :head]
-#   resource '/api/users/:user_id/appointments',
-#     headers: :any,
-#     methods: [:post,:get, :options, :head]
-#   resource '/api/users/:user_id/appointments/:id',
-#     headers: :any,
-#     methods: [:put,:post,:patch, :options, :head]
-#   resource '/api/users',
-#     headers: :any,
-#     methods: [:post, :options, :head]
-#   resource '/api/users/:id',
-#     headers: :any,
-#     methods: [:get, :options, :head]
+  resource '/auth/login',
+    :headers => :any,
+    :methods => [:post,:get, :options, :head]
+  resource '/signup',
+    headers: :any,
+    methods: [:post,:get, :options, :head]
+  resource '/users/:id',
+    headers: :any,
+    methods: [:get, :options, :head]
+  resource '/api/doctorAppointments',
+    headers: :any,
+    methods: [:post,:get, :options, :head]
+  resource '/api/doctors',
+    headers: :any,
+    methods: [:get, :options,:post, :head]
+  resource '/api/users/:user_id/appointments',
+    headers: :any,
+    methods: [:post,:get, :options, :head]
+  resource '/api/users/:user_id/appointments/:id',
+    headers: :any,
+    methods: [:put,:post,:patch, :options, :head]
+  resource '/api/users',
+    headers: :any,
+    methods: [:post, :options, :head]
+  resource '/api/users/:id',
+    headers: :any,
+    methods: [:get, :options, :head]
     
-# end
-# end
+end
+end
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins "*"
