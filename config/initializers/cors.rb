@@ -10,10 +10,10 @@ allow do
 
   resource '/auth/login',
     :headers => :any,
-    :methods => [:post]
+    :methods => [:post,:get, :options, :head]
   resource '/signup',
     headers: :any,
-    methods: [:post, :head]
+    methods: [:post,:get, :options, :head]
   resource '/users/:id',
     headers: :any,
     methods: [:get, :options, :head]
