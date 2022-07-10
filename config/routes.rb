@@ -7,6 +7,7 @@ namespace :api do
       resources :appointments
     end
     resources :doctors
+    get 'doctorAppointments', to: 'doctors#doctor_appointments'
   end
   
 end 

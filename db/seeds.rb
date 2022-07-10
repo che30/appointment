@@ -7,11 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
  Doctor.create!(first_name: 'Zephania',
  last_name: 'Nkwenti',
- specialty: 'ophtamology',
+ specialty: 'Ophtamology',
  email: 'zeph@doctor.com'); 
  Doctor.create!(first_name: 'Anangsong',
  last_name: 'Desmond',
- specialty: 'pediatric',
+ specialty: 'Pediatric',
  email: 'anangson@doctor.com'); 
  Doctor.create!(first_name: 'Nsah',
  last_name: 'larissa',
@@ -19,15 +19,15 @@
  email: 'nsah@doctor.com'); 
  Doctor.create!(first_name: 'Ndangoh',
  last_name: 'Eveline',
- specialty: 'general',
+ specialty: 'General',
  email: 'ndangoh@doctor.com'); 
  Doctor.create!(first_name: 'Koudoum',
  last_name: 'laurance',
- specialty: 'dermatologist',
+ specialty: 'Dermatologist',
  email: 'koudom@doctor.com'); 
  Doctor.create!(first_name: 'Nsoh',
  last_name: 'Awah',
- specialty: 'dentist',
+ specialty: 'Dentist',
  email: 'Awah@doctor.com'); 
 
 
