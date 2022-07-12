@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     if @user.save
       @user.update(patient: true)
       auth_token = AuthenticateUser.new(@user.email, @user.password).call
-      response = { message: Message.account_created, auth_token: auth_token }
+      response = { message: Message.account_created,
+                   auth_token: auth_token, user: @user }
       json_response(response, :created)
     else
       response = @user.errors.full_messages.join(';')
@@ -19,7 +20,11 @@ class UsersController < ApplicationController
       # render json: { status: 500, errors: response}
     end
   end
-  
+
+  def show
+    @user = User.find(params[:id])
+    json_response(@user)
+  end
 
   private
 
