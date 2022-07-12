@@ -8071,3 +8071,409 @@ Processing by UsersController#create as HTML
 Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 191)
   [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
   [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (49.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (40.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (121.7ms)[0m  [1m[35mALTER TABLE "doctors" DISABLE TRIGGER ALL;ALTER TABLE "appointments" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (147.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (125.7ms)[0m  [1m[34m            SELECT schemaname || '.' || tablename
+            FROM pg_tables
+            WHERE
+              tablename !~ '_prt_' AND
+              tablename <> 'schema_migrations'
+  AND tablename <> 'ar_internal_metadata'
+ AND
+              schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (76.4ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'appoint_test'[0m
+  [1m[35m (581.5ms)[0m  [1m[35mTRUNCATE TABLE "doctors", "appointments", "users" RESTART IDENTITY RESTRICT;[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "doctors" ENABLE TRIGGER ALL;ALTER TABLE "appointments" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (22.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (36.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (18.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Thurman Crist"], ["last_name", "Michael Lueilwitz"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$sZREtlV1ckQ3yYtJ9kQKsu2u3VnJk7Dw15OwUFi4X1k4Ow4BhIdpK"], ["created_at", "2022-07-12 11:31:52.741175"], ["updated_at", "2022-07-12 11:31:52.741175"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mDoctor Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (1.2ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jessie Rodriguez II"], ["last_name", "Darrick Ryan"], ["specialty", "Rev. Ernesto Hagenes"], ["email", "foo@bar.com"], ["created_at", "2022-07-12 11:31:52.771670"], ["updated_at", "2022-07-12 11:31:52.771670"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started POST "/api/users/1/appointments" for 127.0.0.1 at 2022-07-12 12:31:52 +0100
+Processing by Api::V1::AppointmentsController#create as HTML
+  Parameters: {"appointment"=>{"message"=>"Temporibus qui aperiam quibusdam.", "time_slot"=>"Tue, 12 Jul 2022 02:53:14 +0100", "email"=>"foo@bar.com", "date_of_appointment"=>"2014-09-25"}, "user_id"=>"1", "doctor_id"=>1}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :email. Context: { controller: Api::V1::AppointmentsController, action: create, request: #<ActionDispatch::Request:0x000055a7c5efb600>, params: {"appointment"=>{"message"=>"Temporibus qui aperiam quibusdam.", "time_slot"=>"Tue, 12 Jul 2022 02:53:14 +0100", "email"=>"foo@bar.com", "date_of_appointment"=>"2014-09-25"}, "user_id"=>"1", "doctor_id"=>1, "controller"=>"api/v1/appointments", "action"=>"create"} }[0m
+Completed 422 Unprocessable Entity in 292ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 18493)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (10.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Zachariah Ortiz"], ["last_name", "Benito Lindgren"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$DbsYMy.pSlfTr/PAM7zafeSiuAj7lttz8Epk8qRea/79bAaETrOBG"], ["created_at", "2022-07-12 11:31:53.469550"], ["updated_at", "2022-07-12 11:31:53.469550"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mDoctor Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.4ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Isiah Fisher"], ["last_name", "Lynna Spencer"], ["specialty", "Major Shields"], ["email", "foo@bar.com"], ["created_at", "2022-07-12 11:31:53.489766"], ["updated_at", "2022-07-12 11:31:53.489766"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started POST "/api/users/2/appointments" for 127.0.0.1 at 2022-07-12 12:31:53 +0100
+Processing by Api::V1::AppointmentsController#create as HTML
+  Parameters: {"appointment"=>{"message"=>"Eum numquam ut voluptatum.", "time_slot"=>"Tue, 12 Jul 2022 00:30:29 +0100", "email"=>"foo@bar.com", "date_of_appointment"=>"2014-09-24"}, "user_id"=>"2", "doctor_id"=>2}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[31mUnpermitted parameter: :email. Context: { controller: Api::V1::AppointmentsController, action: create, request: #<ActionDispatch::Request:0x000055a7c60ce568>, params: {"appointment"=>{"message"=>"Eum numquam ut voluptatum.", "time_slot"=>"Tue, 12 Jul 2022 00:30:29 +0100", "email"=>"foo@bar.com", "date_of_appointment"=>"2014-09-24"}, "user_id"=>"2", "doctor_id"=>2, "controller"=>"api/v1/appointments", "action"=>"create"} }[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1234)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Michelle Stroman"], ["last_name", "Leann Tillman"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$4J/DNNT0.gCK95.Q0OZ3Bes9XgpOxnDE4N9wCjEpDvyOiosSqwgom"], ["created_at", "2022-07-12 11:31:53.526940"], ["updated_at", "2022-07-12 11:31:53.526940"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-12 12:31:53 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"foo@bar.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"foo@bar.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 70ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 711)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Sonny Hilll"], ["last_name", "Cory Rohan"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$gCBNqCc7er8EiOvjvY7w7OhvQCEABvfykCC4bVZF/p6LT7bYaIn2W"], ["created_at", "2022-07-12 11:31:53.639027"], ["updated_at", "2022-07-12 11:31:53.639027"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-12 12:31:53 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"ramona_walker@hilpert.io", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"ramona_walker@hilpert.io", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ramona_walker@hilpert.io"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 17ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 350)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started POST "/signup" for 127.0.0.1 at 2022-07-12 12:31:53 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Edward Altenwerth", "last_name"=>"Antwan Zieme", "email"=>"foo@bar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Edward Altenwerth"], ["last_name", "Antwan Zieme"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$k1.GXjvlydGY5O6r2z4nie9bog7aAM7S3kwKOpdpMWSJwnMokQQZq"], ["created_at", "2022-07-12 11:31:53.730912"], ["updated_at", "2022-07-12 11:31:53.730912"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "foo@bar.com"], ["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Update (12.6ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-12 11:31:53.735386"], ["id", 5]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 56ms (Views: 0.7ms | ActiveRecord: 16.9ms | Allocations: 1818)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started POST "/signup" for 127.0.0.1 at 2022-07-12 12:31:53 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Alexis Orn IV", "last_name"=>"Cherie Pfeffer", "email"=>"foo@bar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Alexis Orn IV"], ["last_name", "Cherie Pfeffer"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$e3oRJzjnMGyglxNjCEHYb.ONHi/VKdDmt9ctGRDEiS7tFemKOFSP2"], ["created_at", "2022-07-12 11:31:53.778923"], ["updated_at", "2022-07-12 11:31:53.778923"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "foo@bar.com"], ["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-12 11:31:53.782480"], ["id", 6]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 13ms (Views: 0.4ms | ActiveRecord: 3.5ms | Allocations: 1717)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started POST "/signup" for 127.0.0.1 at 2022-07-12 12:31:53 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Miss Mauricio Kuhn", "last_name"=>"Sarita Beatty V", "email"=>"foo@bar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Miss Mauricio Kuhn"], ["last_name", "Sarita Beatty V"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$4Xy1KV66kwAB1VOvyI9Kq.s6c0.m80MvkPNmM9Eg6WUYwKNQWidiG"], ["created_at", "2022-07-12 11:31:53.801415"], ["updated_at", "2022-07-12 11:31:53.801415"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "foo@bar.com"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-12 11:31:53.804833"], ["id", 7]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 13ms (Views: 0.4ms | ActiveRecord: 3.3ms | Allocations: 1717)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started POST "/signup" for 127.0.0.1 at 2022-07-12 12:31:53 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 192)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (37.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "doctors" DISABLE TRIGGER ALL;ALTER TABLE "appointments" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (12.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (40.3ms)[0m  [1m[34m            SELECT schemaname || '.' || tablename
+            FROM pg_tables
+            WHERE
+              tablename !~ '_prt_' AND
+              tablename <> 'schema_migrations'
+  AND tablename <> 'ar_internal_metadata'
+ AND
+              schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (2.9ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'appoint_test'[0m
+  [1m[35m (454.5ms)[0m  [1m[35mTRUNCATE TABLE "doctors", "appointments", "users" RESTART IDENTITY RESTRICT;[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "doctors" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "appointments" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Rene Rodriguez"], ["last_name", "Shawn Effertz"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$u26KanFFYC5MeLPmOH4mgusbFAxWzXgo/aIFn2dIxo6gJW/uhTVam"], ["created_at", "2022-07-12 11:33:53.864715"], ["updated_at", "2022-07-12 11:33:53.864715"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mDoctor Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (1.2ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Derrick Lakin"], ["last_name", "Lorelei Shanahan"], ["specialty", "Msgr. Kala Macejkovic"], ["email", "foo@bar.com"], ["created_at", "2022-07-12 11:33:53.886494"], ["updated_at", "2022-07-12 11:33:53.886494"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started POST "/api/users/1/appointments" for 127.0.0.1 at 2022-07-12 12:33:53 +0100
+Processing by Api::V1::AppointmentsController#create as HTML
+  Parameters: {"appointment"=>{"message"=>"Fuga omnis vel corporis.", "time_slot"=>"Mon, 11 Jul 2022 17:38:47 +0100", "email"=>"foo@bar.com", "date_of_appointment"=>"2014-09-23"}, "user_id"=>"1", "doctor_id"=>1}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :email. Context: { controller: Api::V1::AppointmentsController, action: create, request: #<ActionDispatch::Request:0x00007fce646c37b8>, params: {"appointment"=>{"message"=>"Fuga omnis vel corporis.", "time_slot"=>"Mon, 11 Jul 2022 17:38:47 +0100", "email"=>"foo@bar.com", "date_of_appointment"=>"2014-09-23"}, "user_id"=>"1", "doctor_id"=>1, "controller"=>"api/v1/appointments", "action"=>"create"} }[0m
+Completed 422 Unprocessable Entity in 258ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 18495)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Joshua Purdy"], ["last_name", "Dallas Kohler"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$A7yCne7naGZNxUge17xcKew5seNYnb5xP8MmcTqdZnyNNYiflcf.q"], ["created_at", "2022-07-12 11:33:54.510245"], ["updated_at", "2022-07-12 11:33:54.510245"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mDoctor Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "doctors" WHERE "doctors"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mDoctor Create (0.6ms)[0m  [1m[32mINSERT INTO "doctors" ("first_name", "last_name", "specialty", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Pres. Alvaro Fritsch"], ["last_name", "Luba Grant"], ["specialty", "My Hintz"], ["email", "foo@bar.com"], ["created_at", "2022-07-12 11:33:54.517364"], ["updated_at", "2022-07-12 11:33:54.517364"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started POST "/api/users/2/appointments" for 127.0.0.1 at 2022-07-12 12:33:54 +0100
+Processing by Api::V1::AppointmentsController#create as HTML
+  Parameters: {"appointment"=>{"message"=>"Perferendis a quas debitis.", "time_slot"=>"Mon, 11 Jul 2022 16:21:23 +0100", "email"=>"foo@bar.com", "date_of_appointment"=>"2014-09-24"}, "user_id"=>"2", "doctor_id"=>2}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[31mUnpermitted parameter: :email. Context: { controller: Api::V1::AppointmentsController, action: create, request: #<ActionDispatch::Request:0x000055f7246a83f0>, params: {"appointment"=>{"message"=>"Perferendis a quas debitis.", "time_slot"=>"Mon, 11 Jul 2022 16:21:23 +0100", "email"=>"foo@bar.com", "date_of_appointment"=>"2014-09-24"}, "user_id"=>"2", "doctor_id"=>2, "controller"=>"api/v1/appointments", "action"=>"create"} }[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1234)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Melissia Ferry"], ["last_name", "Spencer Smith Ret."], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$l6al1DsdJI551uOsjnVlbeMMIiq1rAM8uOWO.oR6DT.BSe/e0HH3W"], ["created_at", "2022-07-12 11:33:54.551687"], ["updated_at", "2022-07-12 11:33:54.551687"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-12 12:33:54 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"foo@bar.com", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"foo@bar.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 37ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 711)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Jarod Daniel Sr."], ["last_name", "Rupert Daugherty"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$0Bx7uXVfQqzGwL3Ubd/tU.9tYKGvwFiEkIGcZhklnvRAgv9AnIstS"], ["created_at", "2022-07-12 11:33:54.622476"], ["updated_at", "2022-07-12 11:33:54.622476"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started POST "/auth/login" for 127.0.0.1 at 2022-07-12 12:33:54 +0100
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"user"=>{"email"=>"leslie@kulas.org", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"leslie@kulas.org", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "leslie@kulas.org"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 9ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 350)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started POST "/signup" for 127.0.0.1 at 2022-07-12 12:33:54 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Lesley Rosenbaum", "last_name"=>"Charles Ondricka", "email"=>"foo@bar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Lesley Rosenbaum"], ["last_name", "Charles Ondricka"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$gB1lkkX2AuF8eTpZeNKXoOJ0bahyOlAKyUdGT/WKmpV4GkvkuI5YS"], ["created_at", "2022-07-12 11:33:54.680198"], ["updated_at", "2022-07-12 11:33:54.680198"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "foo@bar.com"], ["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-12 11:33:54.684682"], ["id", 5]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 18ms (Views: 0.7ms | ActiveRecord: 3.9ms | Allocations: 1817)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started POST "/signup" for 127.0.0.1 at 2022-07-12 12:33:54 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Chuck Hyatt", "last_name"=>"Scott Stiedemann", "email"=>"foo@bar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Chuck Hyatt"], ["last_name", "Scott Stiedemann"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$ZcjMZtq7CLGakgNsDJbcAusPH5goe1bck6PvK2Pujm6q4JIGTLxxm"], ["created_at", "2022-07-12 11:33:54.708691"], ["updated_at", "2022-07-12 11:33:54.708691"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "foo@bar.com"], ["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-12 11:33:54.712524"], ["id", 6]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 14ms (Views: 0.4ms | ActiveRecord: 3.2ms | Allocations: 1717)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started POST "/signup" for 127.0.0.1 at 2022-07-12 12:33:54 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Fr. Jacquelin Rohan", "last_name"=>"Marianne Feeney", "email"=>"foo@bar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "patient", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Fr. Jacquelin Rohan"], ["last_name", "Marianne Feeney"], ["email", "foo@bar.com"], ["patient", false], ["password_digest", "$2a$04$XfdXMUgN3/X6UB4afjb.BO5ry126IIs1FXftPNtB6o487rKdIPCte"], ["created_at", "2022-07-12 11:33:54.733275"], ["updated_at", "2022-07-12 11:33:54.733275"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "foo@bar.com"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "patient" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["patient", true], ["updated_at", "2022-07-12 11:33:54.737728"], ["id", 7]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 16ms (Views: 0.4ms | ActiveRecord: 4.2ms | Allocations: 1717)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+Started POST "/signup" for 127.0.0.1 at 2022-07-12 12:33:54 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 192)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
