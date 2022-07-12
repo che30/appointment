@@ -15,13 +15,13 @@ This is an MVP App with two types of users, Doctors and patients. Doctors are ad
 
 ##  Prerequisites
 # Rails
-Ruby: 2.7.2
-Rails: 6.1.1
-Postgres: >=9.5
+- Ruby: 2.7.2
+- Rails: 6.1.1
+- Postgres: >=9.5
 
 # React
-node: 16.5.0
-npm": "8.7.0
+- node: 16.5.0
+- npm: 8.7.0
 
 ## Getting started
    To get a local copy up and running follow these simple example steps and type the necessary  highlited commands on your terminal.
